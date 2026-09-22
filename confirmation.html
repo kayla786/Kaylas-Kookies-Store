@@ -93,7 +93,6 @@
 <script>
 (function(){
   const STORAGE_KEY = "kaylasKookiesPickup";
-  const SUBMITTED_KEY = "kaylasKookiesPickupSubmittedV2";
   const ORDER_API = "https://script.google.com/macros/s/AKfycbwx1ENFYmwPYneugKMVYCrSMi7Ny33VEZgG5hMcwjy7IqQ79jP5TqxEV6F5EtTHGk5a/exec";
 
   const dateEl = document.getElementById("confirmDate");
@@ -105,6 +104,7 @@
 
   try {
     pickup = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+
     if (!pickup || !pickup.dateLabel || !pickup.timeLabel || !pickup.location) {
       throw new Error("Pickup data missing");
     }
@@ -119,52 +119,57 @@
     return;
   }
 
-  // Use a hidden HTML form instead of fetch. This is more reliable for
-  // cross-origin submissions to Google Apps Script from GitHub Pages.
-  const submissionId = [pickup.date, pickup.time, pickup.location].join("|");
+  // PayPal PDT sends a transaction token in the "tx" query parameter
+  // when the buyer is returned after checkout.
+  const params = new URLSearchParams(window.location.search);
+  const tx = params.get("tx");
 
-  if (localStorage.getItem(SUBMITTED_KEY) !== submissionId) {
-    const iframe = document.createElement("iframe");
-    iframe.name = "order-log-target";
-    iframe.style.display = "none";
-    document.body.appendChild(iframe);
-
-    const form = document.createElement("form");
-    form.method = "POST";
-    form.action = ORDER_API;
-    form.target = "order-log-target";
-    form.style.display = "none";
-
-    const fields = {
-      pickupDate: pickup.dateLabel,
-      pickupTime: pickup.timeLabel,
-      customerName: "",
-      customerEmail: "",
-      paypalTransactionId: "",
-      paymentStatus: "Returned from PayPal"
-    };
-
-    Object.entries(fields).forEach(([name, value]) => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = name;
-      input.value = value;
-      form.appendChild(input);
-    });
-
-    document.body.appendChild(form);
-
-    iframe.addEventListener("load", function(){
-      localStorage.setItem(SUBMITTED_KEY, submissionId);
-    }, { once: true });
-
-    form.submit();
-
-    // Mark after submission as a fallback so repeated refreshes don't create duplicates.
-    setTimeout(function(){
-      localStorage.setItem(SUBMITTED_KEY, submissionId);
-    }, 1500);
+  // During manual testing there may be no tx. Do not create a paid order
+  // unless PayPal actually returned a transaction token.
+  if (!tx) {
+    return;
   }
+
+  const submissionKey = "kaylasKookiesVerified_" + tx;
+  if (localStorage.getItem(submissionKey)) {
+    return;
+  }
+
+  // Submit the transaction token + pickup details to Apps Script.
+  // Apps Script verifies the token directly with PayPal before writing "Completed".
+  const iframe = document.createElement("iframe");
+  iframe.name = "paypal-order-target";
+  iframe.style.display = "none";
+  document.body.appendChild(iframe);
+
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = ORDER_API;
+  form.target = "paypal-order-target";
+  form.style.display = "none";
+
+  const fields = {
+    tx: tx,
+    pickupDate: pickup.dateLabel,
+    pickupTime: pickup.timeLabel,
+    pickupLocation: pickup.location
+  };
+
+  Object.entries(fields).forEach(([name, value]) => {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = name;
+    input.value = value;
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+
+  iframe.addEventListener("load", function(){
+    localStorage.setItem(submissionKey, "1");
+  }, { once: true });
+
+  form.submit();
 })();
 </script>
 </body>
