@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Online | Kayla's Kookies</title>
+  <meta name="description" content="Order Kayla's Kookies online. Add multiple flavors to your cart and check out securely with PayPal.">
+  <style>
+    :root{
+      --cream:#fbf6ee; --paper:#fffdf9; --brown:#4b2e20;
+      --ink:#241a15; --muted:#6f625b; --line:#e8ddd2; --green:#95d9a8;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+    .nav{max-width:1180px;margin:auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:Georgia,serif;font-size:clamp(24px,4vw,36px);font-weight:700;color:var(--brown)}
+    .tag{font-size:13px;color:var(--muted);margin-top:3px}
+    #cartWrap{display:none}
+    .hero{max-width:900px;margin:0 auto;text-align:center;padding:64px 22px 30px}
+    .hero h1{font-family:Georgia,serif;color:var(--brown);font-size:clamp(38px,7vw,64px);margin:0 0 12px}
+    .hero p{font-size:18px;line-height:1.6;color:var(--muted);margin:0 auto;max-width:660px}
+    .grid{max-width:1180px;margin:0 auto;padding:28px 22px 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+    .content{padding:12px;display:flex;flex-direction:column;flex:1}
+    .paypal-slot{margin-top:0;min-height:48px}
+    .paypal-only-card{overflow:visible}
+    .pickup-wrap{max-width:760px;margin:0 auto 34px;padding:0 22px}
+    .pickup-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px}
+    .pickup-card h2{font-family:Georgia,serif;color:var(--brown);font-size:28px;margin:0 0 8px}
+    .pickup-card .intro{color:var(--muted);line-height:1.55;margin:0 0 20px}
+    .location{background:#f7f1e8;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:20px;line-height:1.45}
+    .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    label{display:block;font-weight:700;margin-bottom:7px}
+    select{width:100%;min-height:46px;padding:10px 12px;border:1px solid #cdbfb3;border-radius:10px;background:white;color:var(--ink);font-size:16px}
+    select:disabled{background:#f2eee9;color:#888}
+    .hours{font-size:14px;line-height:1.55;color:var(--muted);margin:16px 0 0}
+    .status{margin-top:16px;padding:12px 14px;border-radius:10px;background:#f7f1e8;color:var(--brown);font-weight:700;line-height:1.4}
+    .status.ready{background:#edf8f0}
+    .cart-note{max-width:760px;margin:0 auto 70px;padding:0 22px;text-align:center;color:var(--muted);line-height:1.55}
+    .cart-note a{color:var(--brown);font-weight:700}
+    footer{background:var(--brown);color:#fff;padding:28px 22px;text-align:center;font-size:14px}
+    @media(max-width:850px){
+      .grid{grid-template-columns:1fr;max-width:580px}
+      .nav{align-items:flex-start}
+      .hero{padding-top:42px}
+    }
+    @media(max-width:620px){
+      .fields{grid-template-columns:1fr}
+      .pickup-card{padding:22px 18px}
+    }
+  </style>
+
+  <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="2X4QGWTYNY48W"></script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div>
+      <div class="brand">Kayla's Kookies</div>
+      <div class="tag">Kan't have just one.</div>
+    </div>
+    <div id="cartWrap">
+      <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
+      <script>cartPaypal.Cart({ id: "pp-view-cart" })</script>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Order Your Kookies</h1>
+    <p>Choose your favorites, add multiple flavors to your cart, then select your pickup date and time before checkout.</p>
+  </section>
+
+  <section class="grid" aria-label="Cookie flavors">
+    <article class="card paypal-only-card">
+      <div class="content">
+        <div class="paypal-slot">
+          <paypal-add-to-cart-button data-id="CAK6C4HF4XK9Y"></paypal-add-to-cart-button>
+          <script>cartPaypal.AddToCart({ id: "CAK6C4HF4XK9Y" })</script>
+        </div>
+      </div>
+    </article>
+
+    <article class="card paypal-only-card">
+      <div class="content">
+        <div class="paypal-slot">
+          <paypal-add-to-cart-button data-id="YSHH4WTBQMDZY"></paypal-add-to-cart-button>
+          <script>cartPaypal.AddToCart({ id: "YSHH4WTBQMDZY" })</script>
+        </div>
+      </div>
+    </article>
+
+    <article class="card paypal-only-card">
+      <div class="content">
+        <div class="paypal-slot">
+          <paypal-add-to-cart-button data-id="DQP57G5P5WUGY"></paypal-add-to-cart-button>
+          <script>cartPaypal.AddToCart({ id: "DQP57G5P5WUGY" })</script>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="pickup-wrap" aria-labelledby="pickupHeading">
+    <div class="pickup-card">
+      <h2 id="pickupHeading">Choose Your Pickup</h2>
+      <p class="intro">Orders must be placed at least <strong>24 hours before pickup</strong>. Only available pickup dates and times are shown.</p>
+
+      <div class="location">
+        <strong>Pickup location</strong><br>
+        545 Pompton Ave<br>
+        Cedar Grove, NJ 07009
+      </div>
+
+      <div class="fields">
+        <div>
+          <label for="pickupDate">Pickup date</label>
+          <select id="pickupDate">
+            <option value="">Select a date</option>
+          </select>
+        </div>
+        <div>
+          <label for="pickupTime">Pickup time</label>
+          <select id="pickupTime" disabled>
+            <option value="">Select a date first</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="hours">
+        <strong>Pickup hours:</strong> Fridays 6:00 PM–7:00 PM · Saturdays 11:00 AM–5:00 PM · Sundays 11:00 AM–3:00 PM
+      </p>
+
+      <div id="pickupStatus" class="status" role="status" aria-live="polite">
+        Select a pickup date and time to unlock View Cart and checkout.
+      </div>
+    </div>
+  </section>
+
+  <p class="cart-note">
+    Add your favorite flavors to the cart, choose your pickup details, then select <strong>View Cart</strong> at the top of the page to review your order and complete checkout.
+    Planning a larger order, custom request, or catering event? Contact us at
+    <a href="mailto:order@kaylaskookies.org?subject=Kayla's%20Kookies%20Order">order@kaylaskookies.org</a>.
+  </p>
+</main>
+
+<footer>© 2026 Kayla's Kookies · Cedar Grove, New Jersey</footer>
+
+<script>
+(function(){
+  const ZONE = "America/New_York";
+  const LOCATION = "545 Pompton Ave, Cedar Grove, NJ 07009";
+  const STORAGE_KEY = "kaylasKookiesPickup";
+  const dateSelect = document.getElementById("pickupDate");
+  const timeSelect = document.getElementById("pickupTime");
+  const status = document.getElementById("pickupStatus");
+  const cartWrap = document.getElementById("cartWrap");
+
+  const windows = {
+    5: { start: 18 * 60, end: 19 * 60 }, // Friday
+    6: { start: 11 * 60, end: 17 * 60 }, // Saturday
+    0: { start: 11 * 60, end: 15 * 60 }  // Sunday
+  };
+
+  function easternParts(date) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: ZONE, year:"numeric", month:"2-digit", day:"2-digit",
+      hour:"2-digit", minute:"2-digit", second:"2-digit", hourCycle:"h23"
+    }).formatToParts(date);
+    const obj = {};
+    for (const p of parts) if (p.type !== "literal") obj[p.type] = Number(p.value);
+    return obj;
+  }
+
+  // Convert a wall-clock date/time in America/New_York to a real UTC instant.
+  function zonedToUtc(y, m, d, h, min) {
+    const targetWall = Date.UTC(y, m - 1, d, h, min, 0);
+    let guess = targetWall;
+    for (let i = 0; i < 3; i++) {
+      const p = easternParts(new Date(guess));
+      const observedWall = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second || 0);
+      guess += targetWall - observedWall;
+    }
+    return new Date(guess);
+  }
+
+  function pad(n){ return String(n).padStart(2, "0"); }
+  function key(y,m,d){ return y + "-" + pad(m) + "-" + pad(d); }
+
+  function parseKey(s){
+    const [y,m,d] = s.split("-").map(Number);
+    return {y,m,d};
+  }
+
+  function weekday(y,m,d){
+    return new Date(Date.UTC(y, m - 1, d, 12, 0, 0)).getUTCDay();
+  }
+
+  function addCalendarDays(y,m,d,days){
+    const x = new Date(Date.UTC(y, m - 1, d + days, 12, 0, 0));
+    return {y:x.getUTCFullYear(), m:x.getUTCMonth()+1, d:x.getUTCDate()};
+  }
+
+  function formatDate(y,m,d){
+    return new Intl.DateTimeFormat("en-US", {
+      weekday:"long", month:"long", day:"numeric", year:"numeric", timeZone:"UTC"
+    }).format(new Date(Date.UTC(y,m-1,d,12)));
+  }
+
+  function formatTime(totalMinutes){
+    const h24 = Math.floor(totalMinutes/60), min = totalMinutes%60;
+    const suffix = h24 >= 12 ? "PM" : "AM";
+    const h12 = h24 % 12 || 12;
+    return h12 + ":" + pad(min) + " " + suffix;
+  }
+
+  function validSlots(y,m,d){
+    const dow = weekday(y,m,d);
+    const w = windows[dow];
+    if (!w) return [];
+    const cutoff = Date.now() + 24*60*60*1000;
+    const slots = [];
+    // 30-minute pickup increments; endpoints included.
+    for (let mins = w.start; mins <= w.end; mins += 30) {
+      const h = Math.floor(mins/60), mi = mins%60;
+      const instant = zonedToUtc(y,m,d,h,mi);
+      if (instant.getTime() >= cutoff) {
+        slots.push({ value: pad(h)+":"+pad(mi), label: formatTime(mins), instant: instant.toISOString() });
+      }
+    }
+    return slots;
+  }
+
+  function populateDates(){
+    const nowE = easternParts(new Date());
+    for (let i=0; i<60; i++){
+      const x = addCalendarDays(nowE.year, nowE.month, nowE.day, i);
+      const dow = weekday(x.y,x.m,x.d);
+      if (!windows[dow]) continue;
+      if (!validSlots(x.y,x.m,x.d).length) continue;
+      const opt = document.createElement("option");
+      opt.value = key(x.y,x.m,x.d);
+      opt.textContent = formatDate(x.y,x.m,x.d);
+      dateSelect.appendChild(opt);
+    }
+  }
+
+  function populateTimes(){
+    timeSelect.innerHTML = "";
+    if (!dateSelect.value){
+      const opt = new Option("Select a date first", "");
+      timeSelect.add(opt);
+      timeSelect.disabled = true;
+      setReady(false);
+      return;
+    }
+    const {y,m,d} = parseKey(dateSelect.value);
+    const slots = validSlots(y,m,d);
+    const first = new Option("Select a time", "");
+    timeSelect.add(first);
+    for (const s of slots){
+      const opt = new Option(s.label, s.value);
+      opt.dataset.instant = s.instant;
+      timeSelect.add(opt);
+    }
+    timeSelect.disabled = false;
+    setReady(false);
+  }
+
+  function setReady(ready){
+    if (!ready){
+      cartWrap.style.display = "none";
+      status.classList.remove("ready");
+      status.textContent = "Select a pickup date and time to unlock View Cart and checkout.";
+      return;
+    }
+    const {y,m,d} = parseKey(dateSelect.value);
+    const labelDate = formatDate(y,m,d);
+    const labelTime = timeSelect.options[timeSelect.selectedIndex].text;
+    const selectedInstant = timeSelect.options[timeSelect.selectedIndex].dataset.instant;
+
+    const data = {
+      date: dateSelect.value,
+      dateLabel: labelDate,
+      time: timeSelect.value,
+      timeLabel: labelTime,
+      location: LOCATION,
+      instant: selectedInstant
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    cartWrap.style.display = "block";
+    status.classList.add("ready");
+    status.textContent = "Pickup selected: " + labelDate + " at " + labelTime + ". View Cart is now available.";
+  }
+
+  dateSelect.addEventListener("change", populateTimes);
+  timeSelect.addEventListener("change", function(){
+    if (!dateSelect.value || !timeSelect.value) {
+      setReady(false);
+      return;
+    }
+    const selected = timeSelect.options[timeSelect.selectedIndex];
+    const instant = selected.dataset.instant ? Date.parse(selected.dataset.instant) : NaN;
+    if (!Number.isFinite(instant) || instant < Date.now() + 24*60*60*1000) {
+      localStorage.removeItem(STORAGE_KEY);
+      status.classList.remove("ready");
+      status.textContent = "That pickup time is no longer at least 24 hours away. Please choose another time.";
+      cartWrap.style.display = "none";
+      populateTimes();
+      return;
+    }
+    setReady(true);
+  });
+
+  populateDates();
+
+  // Restore a previously selected pickup only if it is still valid.
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if (saved && saved.date && saved.time && Date.parse(saved.instant) >= Date.now() + 24*60*60*1000) {
+      dateSelect.value = saved.date;
+      if (dateSelect.value) {
+        populateTimes();
+        timeSelect.value = saved.time;
+        if (timeSelect.value) setReady(true);
+      }
+    } else if (saved) {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  } catch(e) {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+})();
+</script>
+</body>
+</html>
