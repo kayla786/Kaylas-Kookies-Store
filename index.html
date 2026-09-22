@@ -21,17 +21,13 @@
     .hero p{font-size:18px;line-height:1.6;color:var(--muted);margin:0 auto;max-width:660px}
     .grid{max-width:1180px;margin:0 auto;padding:28px 22px 72px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
     .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
-    .photo{aspect-ratio:4/3;background:#f5ede5;display:flex;align-items:center;justify-content:center;padding:12px}
-    .photo img{width:100%;height:100%;object-fit:contain}
     .content{padding:24px;display:flex;flex-direction:column;flex:1}
-    h2{font-family:Georgia,serif;color:var(--brown);font-size:26px;margin:0 0 10px}
-    .desc{color:var(--muted);line-height:1.55;min-height:74px;margin:0 0 18px}
-    .price{font-size:23px;font-weight:700;margin:0 0 4px}
-    .unit{font-size:13px;color:var(--muted);margin-bottom:20px}
-    .paypal-slot{margin-top:auto;min-height:48px}
+    .paypal-slot{margin-top:0;min-height:48px}
+    .paypal-only-card .content{padding:12px}
+    .paypal-only-card{overflow:visible}
     .cart-note{max-width:760px;margin:-38px auto 70px;padding:0 22px;text-align:center;color:var(--muted);line-height:1.55}
     footer{background:var(--brown);color:#fff;padding:28px 22px;text-align:center;font-size:14px}
-    @media(max-width:850px){.grid{grid-template-columns:1fr;max-width:580px}.desc{min-height:0}.nav{align-items:flex-start}.hero{padding-top:42px}}
+    @media(max-width:850px){.grid{grid-template-columns:1fr;max-width:580px}.nav{align-items:flex-start}.hero{padding-top:42px}}
   </style>
 
   <!-- PayPal Shopping Cart: load once per page -->
@@ -58,13 +54,9 @@
   </section>
 
   <section class="grid" aria-label="Cookie flavors">
-    <article class="card">
-      <div class="photo"><img src="chocolate-chip.png" alt="Chocolate Chip cookie on a plate"></div>
+    
+    <article class="card paypal-only-card">
       <div class="content">
-        <h2>Chocolate Chip</h2>
-        <p class="desc">Your mother's classic, soft and chewy chocolate chip cookies.</p>
-        <div class="price">$18.99</div>
-        <div class="unit">per dozen</div>
         <div class="paypal-slot">
           <paypal-add-to-cart-button data-id="CAK6C4HF4XK9Y"></paypal-add-to-cart-button>
           <script>cartPaypal.AddToCart({ id: "CAK6C4HF4XK9Y" })</script>
@@ -72,13 +64,9 @@
       </div>
     </article>
 
-    <article class="card">
-      <div class="photo"><img src="double-chocolate.png" alt="Double Chocolate Chunk cookie on a plate"></div>
+    
+    <article class="card paypal-only-card">
       <div class="content">
-        <h2>Double Chocolate Chunk</h2>
-        <p class="desc">For the serious chocolate lover — a rich, fudgy chocolate cookie packed with melt-in-your-mouth chocolate chips.</p>
-        <div class="price">$18.99</div>
-        <div class="unit">per dozen</div>
         <div class="paypal-slot">
           <paypal-add-to-cart-button data-id="YSHH4WTBQMDZY"></paypal-add-to-cart-button>
           <script>cartPaypal.AddToCart({ id: "YSHH4WTBQMDZY" })</script>
@@ -86,13 +74,9 @@
       </div>
     </article>
 
-    <article class="card">
-      <div class="photo"><img src="biscoff.png" alt="Cookie Butter White Chocolate cookie on a plate"></div>
+    
+    <article class="card paypal-only-card">
       <div class="content">
-        <h2>Cookie Butter White Chocolate</h2>
-        <p class="desc">A soft, buttery cookie loaded with cookie butter and white chocolate chips, topped with a Biscoff® cookie for the ultimate rich bite.</p>
-        <div class="price">$20.99</div>
-        <div class="unit">per dozen</div>
         <div class="paypal-slot">
           <paypal-add-to-cart-button data-id="DQP57G5P5WUGY"></paypal-add-to-cart-button>
           <script>cartPaypal.AddToCart({ id: "DQP57G5P5WUGY" })</script>
