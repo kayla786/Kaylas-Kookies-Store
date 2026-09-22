@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Confirmed | Kayla's Kookies</title>
+  <meta name="description" content="Kayla's Kookies order confirmation and pickup instructions.">
+  <style>
+    :root{
+      --cream:#fbf6ee;
+      --paper:#fffdf9;
+      --brown:#4b2e20;
+      --muted:#6f625b;
+      --line:#e8ddd2;
+      --green:#95d9a8;
+      --ink:#241a15;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--cream);
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+    }
+    header{
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      max-width:900px;
+      margin:auto;
+      padding:18px 22px;
+    }
+    .brand{
+      font-family:Georgia,serif;
+      font-size:30px;
+      font-weight:700;
+      color:var(--brown);
+    }
+    .tag{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:3px;
+    }
+    main{
+      max-width:760px;
+      margin:0 auto;
+      padding:54px 22px 72px;
+    }
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:34px;
+    }
+    h1{
+      margin:0 0 12px;
+      font-family:Georgia,serif;
+      color:var(--brown);
+      font-size:clamp(38px,7vw,56px);
+      line-height:1.05;
+    }
+    .lead{
+      font-size:18px;
+      line-height:1.6;
+      color:var(--muted);
+      margin:0 0 28px;
+    }
+    .section{
+      padding:24px 0;
+      border-top:1px solid var(--line);
+    }
+    .section:first-of-type{
+      border-top:0;
+      padding-top:0;
+    }
+    h2{
+      margin:0 0 10px;
+      font-family:Georgia,serif;
+      color:var(--brown);
+      font-size:24px;
+    }
+    p{
+      line-height:1.6;
+      margin:0 0 12px;
+    }
+    ul{
+      margin:10px 0 0 20px;
+      padding:0;
+      line-height:1.65;
+    }
+    .notice{
+      background:#f7f1e8;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px 18px;
+      margin-top:14px;
+    }
+    .button{
+      display:inline-block;
+      margin-top:16px;
+      background:var(--green);
+      color:#000;
+      text-decoration:none;
+      padding:12px 20px;
+      border-radius:999px;
+      font-weight:700;
+    }
+    .contact a{
+      color:var(--brown);
+      font-weight:700;
+    }
+    footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      padding:0 22px 30px;
+    }
+    @media(max-width:600px){
+      .card{padding:24px 20px}
+      main{padding-top:32px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">Kayla's Kookies</div>
+      <div class="tag">Kan't have just one.</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h1>Thank You for Your Order!</h1>
+      <p class="lead">
+        Your Kayla's Kookies order has been received. Please review the pickup information below before leaving this page.
+      </p>
+
+      <div class="section">
+        <h2>Pickup Instructions</h2>
+        <ul>
+          <li>Your pickup date and time will be confirmed by email.</li>
+          <li>Please do not arrive for pickup until you have received a confirmation from us.</li>
+          <li>Bring your order confirmation or the name used at checkout when you arrive.</li>
+          <li>If your pickup details change, contact us as soon as possible.</li>
+        </ul>
+
+        <div class="notice">
+          <strong>Important:</strong> Your exact pickup location and final instructions will be provided in your confirmation email.
+        </div>
+      </div>
+
+      <div class="section contact">
+        <h2>Questions or Special Requests?</h2>
+        <p>
+          For changes, larger orders, custom requests, or catering, email
+          <a href="mailto:order@kaylaskookies.org?subject=Kayla's%20Kookies%20Order">
+            order@kaylaskookies.org
+          </a>.
+        </p>
+        <a class="button" href="./">Return to Store</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Kayla's Kookies · Cedar Grove, New Jersey
+  </footer>
+</body>
+</html>
