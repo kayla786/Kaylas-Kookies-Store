@@ -1,144 +1,136 @@
-```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Order Online | Kayla's Kookies</title>
-
-  <meta
-    name="description"
-    content="Order Kayla's Kookies online. Add multiple flavors to your cart and check out securely with PayPal."
-  >
+  <meta name="description" content="Order Kayla's Kookies online. Add multiple flavors to your cart and check out securely with PayPal.">
 
   <style>
-    :root {
-      --cream: #fbf6ee;
-      --paper: #fffdf9;
-      --brown: #4b2e20;
-      --ink: #241a15;
-      --muted: #6f625b;
-      --line: #e8ddd2;
-      --green: #95d9a8;
+    :root{
+      --cream:#fbf6ee; --paper:#fffdf9; --brown:#4b2e20;
+      --ink:#241a15; --muted:#6f625b; --line:#e8ddd2; --green:#95d9a8;
     }
-
-    * {
-      box-sizing: border-box;
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+    .nav{max-width:1180px;margin:auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:Georgia,serif;font-size:clamp(24px,4vw,36px);font-weight:700;color:var(--brown)}
+    .tag{font-size:13px;color:var(--muted);margin-top:3px}
+    #cartWrap{display:block}
+    .hero{max-width:900px;margin:0 auto;text-align:center;padding:64px 22px 30px}
+    .hero h1{font-family:Georgia,serif;color:var(--brown);font-size:clamp(38px,7vw,64px);margin:0 0 12px}
+    .hero p{font-size:18px;line-height:1.6;color:var(--muted);margin:0 auto;max-width:660px}
+    .grid{max-width:1180px;margin:0 auto;padding:28px 22px 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+    .content{padding:12px;display:flex;flex-direction:column;flex:1}
+    .paypal-slot{margin-top:0;min-height:48px}
+    .paypal-only-card{overflow:visible}
+    .pickup-wrap{max-width:760px;margin:0 auto 34px;padding:0 22px}
+    .pickup-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px}
+    .pickup-card h2{font-family:Georgia,serif;color:var(--brown);font-size:28px;margin:0 0 8px}
+    .pickup-card .intro{color:var(--muted);line-height:1.55;margin:0 0 16px}
+    .location{background:#f7f1e8;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:20px 0;line-height:1.45}
+    .pickup-card a{color:var(--brown);font-weight:700}
+    .cart-note{max-width:760px;margin:0 auto 70px;padding:0 22px;text-align:center;color:var(--muted);line-height:1.55}
+    .cart-note a{color:var(--brown);font-weight:700}
+    footer{background:var(--brown);color:#fff;padding:28px 22px;text-align:center;font-size:14px}
+    @media(max-width:850px){
+      .grid{grid-template-columns:1fr;max-width:580px}
+      .nav{align-items:flex-start}
+      .hero{padding-top:42px}
     }
-
-    body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
+    @media(max-width:620px){
+      .pickup-card{padding:22px 18px}
     }
+  </style>
 
-    header {
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+  <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="2X4QGWTYNY48W"></script>
+</head>
+<body>
 
-    .nav {
-      max-width: 1180px;
-      margin: auto;
-      padding: 18px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+<header>
+  <div class="nav">
+    <div>
+      <div class="brand">Kayla's Kookies</div>
+      <div class="tag">Kan't have just one.</div>
+    </div>
+    <div id="cartWrap">
+      <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
+      <script>cartPaypal.Cart({ id: "pp-view-cart" })</script>
+    </div>
+  </div>
+</header>
 
-    .brand {
-      font-family: Georgia, serif;
-      font-size: clamp(24px, 4vw, 36px);
-      font-weight: 700;
-      color: var(--brown);
-    }
+<main>
+  <section class="hero">
+    <h1>Order Your Kookies</h1>
+    <p>Choose your favorites, add multiple flavors to your cart, then check out securely with PayPal.</p>
+  </section>
 
-    .tag {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 3px;
-    }
+  <section class="grid" aria-label="Cookie flavors">
+    <article class="card paypal-only-card">
+      <div class="content">
+        <div class="paypal-slot">
+          <paypal-add-to-cart-button data-id="CAK6C4HF4XK9Y"></paypal-add-to-cart-button>
+          <script>cartPaypal.AddToCart({ id: "CAK6C4HF4XK9Y" })</script>
+        </div>
+      </div>
+    </article>
 
-    #cartWrap {
-      display: block;
-    }
+    <article class="card paypal-only-card">
+      <div class="content">
+        <div class="paypal-slot">
+          <paypal-add-to-cart-button data-id="YSHH4WTBQMDZY"></paypal-add-to-cart-button>
+          <script>cartPaypal.AddToCart({ id: "YSHH4WTBQMDZY" })</script>
+        </div>
+      </div>
+    </article>
 
-    .hero {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 64px 22px 30px;
-    }
+    <article class="card paypal-only-card">
+      <div class="content">
+        <div class="paypal-slot">
+          <paypal-add-to-cart-button data-id="DQP57G5P5WUGY"></paypal-add-to-cart-button>
+          <script>cartPaypal.AddToCart({ id: "DQP57G5P5WUGY" })</script>
+        </div>
+      </div>
+    </article>
+  </section>
 
-    .hero h1 {
-      font-family: Georgia, serif;
-      color: var(--brown);
-      font-size: clamp(38px, 7vw, 64px);
-      margin: 0 0 12px;
-    }
+  <section class="pickup-wrap" aria-labelledby="pickupHeading">
+    <div class="pickup-card">
+      <h2 id="pickupHeading">Pickup Information</h2>
 
-    .hero p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--muted);
-      margin: 0 auto;
-      max-width: 660px;
-    }
+      <p class="intro">
+        All orders are available for pickup at the address below.
+      </p>
 
-    .grid {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 28px 22px 44px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+      <div class="location">
+        <strong>Pickup Address</strong><br>
+        545 Pompton Ave<br>
+        Cedar Grove, NJ 07009
+      </div>
 
-    .card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
+      <p class="intro">
+        After your order is confirmed, we will reach out to you to confirm a pickup time.
+      </p>
 
-    .content {
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
+      <p class="intro">
+        For any questions regarding order pickup, please email
+        <a href="mailto:help@kaylaskookies.org">help@kaylaskookies.org</a>.
+      </p>
+    </div>
+  </section>
 
-    .paypal-slot {
-      margin-top: 0;
-      min-height: 48px;
-    }
+  <p class="cart-note">
+    Add your favorite flavors to the cart, then select <strong>View Cart</strong>
+    at the top of the page to review your order and complete checkout.
+    Planning a larger order, custom request, or catering event? Contact us at
+    <a href="mailto:help@kaylaskookies.org?subject=Kayla's%20Kookies%20Order">help@kaylaskookies.org</a>.
+  </p>
+</main>
 
-    .paypal-only-card {
-      overflow: visible;
-    }
+<footer>© 2026 Kayla's Kookies · Cedar Grove, New Jersey</footer>
 
-    .pickup-wrap {
-      max-width: 760px;
-      margin: 0 auto 34px;
-      padding: 0 22px;
-    }
-
-    .pickup-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 26px;
-    }
-
-    .pickup-card h2 {
-      font-family: Georgia, serif;
-      color: var(--brown);
-      font-size: 28px
+</body>
+</html>
