@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Order Online | Kayla's Kookies</title>
-  <meta name="description" content="Order Kayla's Kookies online. Add cookies and gift baskets to your cart and check out securely with PayPal.">
+  <title>Gift Baskets | Kayla's Kookies</title>
+  <meta name="description" content="Shop Kayla's Kookies gift baskets with Chocolate Chip, Double Chocolate, and Cookie Butter cookies.">
 
   <style>
     :root {
@@ -27,223 +27,102 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
+    .page-header {
+      padding: 48px 20px 22px;
+      text-align: center;
     }
 
-    .nav {
-      max-width: 1180px;
-      margin: auto;
-      padding: 18px 22px;
+    h1 {
+      margin: 0 0 10px;
+      color: var(--brown);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 7vw, 54px);
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .basket-section {
+      width: min(100% - 32px, 760px);
+      margin: 8px auto 48px;
       display: flex;
+      justify-content: center;
+    }
+
+    .basket-card {
+      width: 100%;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--paper);
+      text-align: center;
+    }
+
+    .basket-card p {
+      max-width: 560px;
+      margin: 0 auto 20px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .basket-card strong {
+      color: var(--brown);
+    }
+
+    .paypal-controls {
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
     }
 
-    .brand {
-      color: var(--brown);
-      font-family: Georgia, serif;
-      font-size: clamp(24px, 4vw, 36px);
-      font-weight: 700;
-    }
-
-    .tag {
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    #cartWrap {
+    paypal-cart-button,
+    paypal-add-to-cart-button {
       display: block;
-    }
-
-    .hero {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 64px 22px 30px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      margin: 0 0 12px;
-      color: var(--brown);
-      font-family: Georgia, serif;
-      font-size: clamp(38px, 7vw, 64px);
-    }
-
-    .hero p {
-      max-width: 660px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 20px 22px 0;
-      text-align: center;
-    }
-
-    .section-heading h2 {
-      margin: 0 0 8px;
-      color: var(--brown);
-      font-family: Georgia, serif;
-      font-size: clamp(30px, 5vw, 42px);
-    }
-
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .grid {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 28px 22px 44px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: var(--paper);
-    }
-
-    .content {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      padding: 12px;
-    }
-
-    .paypal-slot {
-      min-height: 48px;
-    }
-
-    .paypal-only-card {
-      overflow: visible;
-    }
-
-    .gift-section {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 22px 54px;
-    }
-
-    .gift-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 28px;
-    }
-
-    .gift-card {
       max-width: 100%;
+      margin: 0 auto;
     }
 
-    .gift-description {
-      margin: 0;
-      padding: 4px 4px 14px;
-      color: var(--muted);
-      line-height: 1.55;
+    .help-text {
+      margin-top: 20px !important;
+      margin-bottom: 0 !important;
+      font-size: 14px !important;
     }
 
-    .pickup-wrap {
-      max-width: 760px;
-      margin: 0 auto 34px;
-      padding: 0 22px;
-    }
-
-    .pickup-card {
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: var(--paper);
-    }
-
-    .pickup-card h2 {
-      margin: 0 0 8px;
-      color: var(--brown);
-      font-family: Georgia, serif;
-      font-size: 28px;
-    }
-
-    .pickup-card .intro {
-      margin: 0 0 16px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .location {
-      margin: 20px 0;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #f7f1e8;
-      line-height: 1.45;
-    }
-
-    .pickup-card a,
-    .cart-note a {
+    .help-text a {
       color: var(--brown);
       font-weight: 700;
-    }
-
-    .cart-note {
-      max-width: 760px;
-      margin: 0 auto 70px;
-      padding: 0 22px;
-      color: var(--muted);
-      line-height: 1.55;
-      text-align: center;
     }
 
     footer {
-      padding: 28px 22px;
+      padding: 24px 16px;
       background: var(--brown);
       color: #fff;
-      font-size: 14px;
       text-align: center;
+      font-size: 14px;
     }
 
-    @media (max-width: 850px) {
-      .grid,
-      .gift-grid {
-        max-width: 580px;
-        grid-template-columns: 1fr;
-        margin-right: auto;
-        margin-left: auto;
+    @media (max-width: 600px) {
+      .page-header {
+        padding-top: 38px;
       }
 
-      .nav {
-        align-items: flex-start;
-      }
-
-      .hero {
-        padding-top: 42px;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .pickup-card {
-        padding: 22px 18px;
+      .basket-card {
+        padding: 22px 16px;
       }
     }
   </style>
 
+  <!-- PayPal Shopping Cart setup -->
   <script
     src="https://www.paypalobjects.com/ncp/cart/cart.js"
     data-merchant-id="2X4QGWTYNY48W">
@@ -251,124 +130,46 @@
 </head>
 
 <body>
-  <header>
-    <div class="nav">
-      <div>
-        <div class="brand">Kayla's Kookies</div>
-        <div class="tag">Kan't have just one.</div>
-      </div>
-
-      <div id="cartWrap">
-        <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
-        <script>cartPaypal.Cart({ id: "pp-view-cart" })</script>
-      </div>
-    </div>
-  </header>
-
   <main>
-    <section class="hero">
-      <h1>Order Your Kookies</h1>
-      <p>
-        Choose your favorites, add multiple flavors to your cart, then check out
-        securely with PayPal.
+    <header class="page-header">
+      <h1>Gift Baskets</h1>
+      <p class="subtitle">
+        Share a little sweetness with our signature Chocolate Chip,
+        Double Chocolate, and Cookie Butter cookies.
       </p>
-    </section>
+    </header>
 
-    <section aria-label="Cookie flavors">
-      <div class="section-heading">
-        <h2>Our Kookies</h2>
-        <p>Add your favorite flavors to your cart.</p>
-      </div>
-
-      <div class="grid">
-        <article class="card paypal-only-card">
-          <div class="content">
-            <div class="paypal-slot">
-              <paypal-add-to-cart-button data-id="CAK6C4HF4XK9Y"></paypal-add-to-cart-button>
-              <script>cartPaypal.AddToCart({ id: "CAK6C4HF4XK9Y" })</script>
-            </div>
-          </div>
-        </article>
-
-        <article class="card paypal-only-card">
-          <div class="content">
-            <div class="paypal-slot">
-              <paypal-add-to-cart-button data-id="YSHH4WTBQMDZY"></paypal-add-to-cart-button>
-              <script>cartPaypal.AddToCart({ id: "YSHH4WTBQMDZY" })</script>
-            </div>
-          </div>
-        </article>
-
-        <article class="card paypal-only-card">
-          <div class="content">
-            <div class="paypal-slot">
-              <paypal-add-to-cart-button data-id="DQP57G5P5WUGY"></paypal-add-to-cart-button>
-              <script>cartPaypal.AddToCart({ id: "DQP57G5P5WUGY" })</script>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="gift-section" aria-labelledby="giftHeading">
-      <div class="section-heading">
-        <h2 id="giftHeading">Gift Baskets</h2>
+    <section class="basket-section" aria-label="Gift basket ordering">
+      <div class="basket-card">
         <p>
-          Share a little sweetness with our signature Chocolate Chip,
-          Double Chocolate, and Cookie Butter cookies.
-        </p>
-      </div>
-
-      <div class="gift-grid">
-        <article class="card gift-card paypal-only-card">
-          <div class="content">
-            <p class="gift-description">
-              Choose your basket size from the options on the PayPal button:
-              small includes 2 of each flavor, medium includes 4 of each flavor,
-              and large includes 12 of each flavor.
-            </p>
-
-            <div class="paypal-slot">
-              <paypal-add-to-cart-button data-id="ZPNVMTBEYMAFQ"></paypal-add-to-cart-button>
-              <script>cartPaypal.AddToCart({ id: "ZPNVMTBEYMAFQ" })</script>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="pickup-wrap" aria-labelledby="pickupHeading">
-      <div class="pickup-card">
-        <h2 id="pickupHeading">Pickup Information</h2>
-
-        <p class="intro">
-          All orders are available for pickup at the address below.
+          Choose your basket size from the options on the PayPal button:
+          <strong>small</strong> includes 2 of each flavor,
+          <strong>medium</strong> includes 4 of each flavor, and
+          <strong>large</strong> includes 12 of each flavor.
         </p>
 
-        <div class="location">
-          <strong>Pickup Address</strong><br>
-          99 Slattery Drive<br>
-          Cedar Grove, NJ 07009
+        <div class="paypal-controls">
+          <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
+          <script>
+            cartPaypal.Cart({ id: "pp-view-cart" });
+          </script>
+
+          <paypal-add-to-cart-button
+            data-id="ZPNVMTBFYMAFQ">
+          </paypal-add-to-cart-button>
+          <script>
+            cartPaypal.AddToCart({ id: "ZPNVMTBFYMAFQ" });
+          </script>
         </div>
 
-        <p class="intro">
-          After your order is confirmed, we will reach out to you to coordinate
-          a pickup time.
-        </p>
-
-        <p class="intro">
-          For any questions regarding order pickup, please email
-          <a href="mailto:help@kaylaskookies.org">help@kaylaskookies.org</a>.
+        <p class="help-text">
+          If you have questions about your order, email
+          <a href="mailto:help@kaylaskookies.org">
+            help@kaylaskookies.org
+          </a>.
         </p>
       </div>
     </section>
-
-    <p class="cart-note">
-      Add your favorite flavors to the cart, then select <strong>View Cart</strong>
-      at the top of the page to review your order and complete checkout.
-      Planning a larger order, custom request, or catering event? Contact us at
-      <a href="mailto:order@kaylaskookies.org?subject=Kayla's%20Kookies%20Order">order@kaylaskookies.org</a>.
-    </p>
   </main>
 
   <footer>© 2026 Kayla's Kookies · Cedar Grove, New Jersey</footer>
