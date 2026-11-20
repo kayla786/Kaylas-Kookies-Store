@@ -84,6 +84,26 @@
       line-height: 1.6;
     }
 
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 20px 22px 0;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 8px;
+      color: var(--brown);
+      font-family: Georgia, serif;
+      font-size: clamp(30px, 5vw, 42px);
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     .grid {
       max-width: 1180px;
       margin: 0 auto;
@@ -111,7 +131,6 @@
 
     .paypal-slot {
       min-height: 48px;
-      margin-top: 0;
     }
 
     .paypal-only-card {
@@ -121,54 +140,25 @@
     .gift-section {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 4px 22px 54px;
+      padding: 0 22px 54px;
     }
 
-    .gift-heading {
-      max-width: 700px;
-      margin: 0 auto 24px;
-      text-align: center;
-    }
-
-    .gift-heading h2 {
-      margin: 0 0 10px;
-      color: var(--brown);
-      font-family: Georgia, serif;
-      font-size: clamp(30px, 5vw, 42px);
-    }
-
-    .gift-heading p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 28px;
     }
 
     .gift-card {
-      max-width: 580px;
-      margin: 0 auto;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: var(--paper);
+      max-width: 100%;
     }
 
-    .gift-card h3 {
-      margin: 0 0 8px;
-      color: var(--brown);
-      font-family: Georgia, serif;
-      font-size: 25px;
-    }
-
-    .gift-card p {
-      margin: 0 0 16px;
+    .gift-description {
+      margin: 0;
+      padding: 4px 4px 14px;
       color: var(--muted);
       line-height: 1.55;
-    }
-
-    .gift-card .gift-count {
-      margin-bottom: 14px;
-      color: var(--brown);
-      font-weight: 700;
     }
 
     .pickup-wrap {
@@ -230,9 +220,12 @@
     }
 
     @media (max-width: 850px) {
-      .grid {
+      .grid,
+      .gift-grid {
         max-width: 580px;
         grid-template-columns: 1fr;
+        margin-right: auto;
+        margin-left: auto;
       }
 
       .nav {
@@ -258,7 +251,6 @@
 </head>
 
 <body>
-
   <header>
     <div class="nav">
       <div>
@@ -282,61 +274,67 @@
       </p>
     </section>
 
-    <section class="grid" aria-label="Cookie flavors">
-      <article class="card paypal-only-card">
-        <div class="content">
-          <div class="paypal-slot">
-            <paypal-add-to-cart-button data-id="CAK6C4HF4XK9Y"></paypal-add-to-cart-button>
-            <script>cartPaypal.AddToCart({ id: "CAK6C4HF4XK9Y" })</script>
-          </div>
-        </div>
-      </article>
+    <section aria-label="Cookie flavors">
+      <div class="section-heading">
+        <h2>Our Kookies</h2>
+        <p>Add your favorite flavors to your cart.</p>
+      </div>
 
-      <article class="card paypal-only-card">
-        <div class="content">
-          <div class="paypal-slot">
-            <paypal-add-to-cart-button data-id="YSHH4WTBQMDZY"></paypal-add-to-cart-button>
-            <script>cartPaypal.AddToCart({ id: "YSHH4WTBQMDZY" })</script>
+      <div class="grid">
+        <article class="card paypal-only-card">
+          <div class="content">
+            <div class="paypal-slot">
+              <paypal-add-to-cart-button data-id="CAK6C4HF4XK9Y"></paypal-add-to-cart-button>
+              <script>cartPaypal.AddToCart({ id: "CAK6C4HF4XK9Y" })</script>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="card paypal-only-card">
-        <div class="content">
-          <div class="paypal-slot">
-            <paypal-add-to-cart-button data-id="DQP57G5P5WUGY"></paypal-add-to-cart-button>
-            <script>cartPaypal.AddToCart({ id: "DQP57G5P5WUGY" })</script>
+        <article class="card paypal-only-card">
+          <div class="content">
+            <div class="paypal-slot">
+              <paypal-add-to-cart-button data-id="YSHH4WTBQMDZY"></paypal-add-to-cart-button>
+              <script>cartPaypal.AddToCart({ id: "YSHH4WTBQMDZY" })</script>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+
+        <article class="card paypal-only-card">
+          <div class="content">
+            <div class="paypal-slot">
+              <paypal-add-to-cart-button data-id="DQP57G5P5WUGY"></paypal-add-to-cart-button>
+              <script>cartPaypal.AddToCart({ id: "DQP57G5P5WUGY" })</script>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="gift-section" aria-labelledby="giftHeading">
-      <div class="gift-heading">
+      <div class="section-heading">
         <h2 id="giftHeading">Gift Baskets</h2>
         <p>
-          Share a little sweetness with a basket of our signature Chocolate Chip,
-          Double Chocolate, and Cookie Butter cookies. Choose the size that’s just
-          right for your celebration, thank-you, or treat.
+          Share a little sweetness with our signature Chocolate Chip,
+          Double Chocolate, and Cookie Butter cookies.
         </p>
       </div>
 
-      <article class="gift-card">
-        <h3>Kayla's Kookies Gift Basket</h3>
-        <p class="gift-count">
-          Choose from small, medium, or large
-        </p>
-        <p>
-          Small baskets include 2 of each flavor, medium baskets include 4 of
-          each flavor, and large baskets include 12 of each flavor. Select your
-          basket size using the options on the PayPal button below.
-        </p>
+      <div class="gift-grid">
+        <article class="card gift-card paypal-only-card">
+          <div class="content">
+            <p class="gift-description">
+              Choose your basket size from the options on the PayPal button:
+              small includes 2 of each flavor, medium includes 4 of each flavor,
+              and large includes 12 of each flavor.
+            </p>
 
-        <div class="paypal-slot">
-          <paypal-add-to-cart-button data-id="ZPNVMTBEYMAFQ"></paypal-add-to-cart-button>
-          <script>cartPaypal.AddToCart({ id: "ZPNVMTBEYMAFQ" })</script>
-        </div>
-      </article>
+            <div class="paypal-slot">
+              <paypal-add-to-cart-button data-id="ZPNVMTBEYMAFQ"></paypal-add-to-cart-button>
+              <script>cartPaypal.AddToCart({ id: "ZPNVMTBEYMAFQ" })</script>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="pickup-wrap" aria-labelledby="pickupHeading">
@@ -374,6 +372,5 @@
   </main>
 
   <footer>© 2026 Kayla's Kookies · Cedar Grove, New Jersey</footer>
-
 </body>
 </html>
