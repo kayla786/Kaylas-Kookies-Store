@@ -26,14 +26,13 @@
     .content{padding:12px;display:flex;flex-direction:column;flex:1}
     .paypal-slot{margin-top:0;min-height:48px}
     .paypal-only-card{overflow:visible}
-
     .gift-basket-wrap{max-width:1180px;margin:0 auto;padding:0 22px 44px}
     .gift-basket-card{max-width:760px;margin:0 auto;text-align:center}
     .gift-basket-content{padding:24px}
     .gift-basket-card h2{font-family:Georgia,serif;color:var(--brown);font-size:30px;margin:0 0 10px}
     .gift-basket-card p{color:var(--muted);line-height:1.6;margin:0 auto 18px;max-width:620px}
-    .gift-basket-card .paypal-slot{display:flex;justify-content:center;align-items:center}
-
+    .gift-basket-card .paypal-slot{display:block;width:100%;min-width:0;text-align:center}
+    .gift-basket-card .paypal-slot paypal-add-to-cart-button{display:block;width:100%;max-width:440px;min-width:0;margin:0 auto}
     .pickup-wrap{max-width:760px;margin:0 auto 34px;padding:0 22px}
     .pickup-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px}
     .pickup-card h2{font-family:Georgia,serif;color:var(--brown);font-size:28px;margin:0 0 8px}
@@ -43,7 +42,6 @@
     .cart-note{max-width:760px;margin:0 auto 70px;padding:0 22px;text-align:center;color:var(--muted);line-height:1.55}
     .cart-note a{color:var(--brown);font-weight:700}
     footer{background:var(--brown);color:#fff;padding:28px 22px;text-align:center;font-size:14px}
-
     @media(max-width:850px){
       .grid{grid-template-columns:1fr;max-width:580px}
       .nav{align-items:flex-start}
