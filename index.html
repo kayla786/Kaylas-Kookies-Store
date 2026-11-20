@@ -4,133 +4,376 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Order Online | Kayla's Kookies</title>
-  <meta name="description" content="Order Kayla's Kookies online. Add multiple flavors to your cart and check out securely with PayPal.">
+  <meta name="description" content="Order Kayla's Kookies online. Add cookies and gift baskets to your cart and check out securely with PayPal.">
 
   <style>
-    :root{
-      --cream:#fbf6ee; --paper:#fffdf9; --brown:#4b2e20;
-      --ink:#241a15; --muted:#6f625b; --line:#e8ddd2; --green:#95d9a8;
+    :root {
+      --cream: #fbf6ee;
+      --paper: #fffdf9;
+      --brown: #4b2e20;
+      --ink: #241a15;
+      --muted: #6f625b;
+      --line: #e8ddd2;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
-    header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
-    .nav{max-width:1180px;margin:auto;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{font-family:Georgia,serif;font-size:clamp(24px,4vw,36px);font-weight:700;color:var(--brown)}
-    .tag{font-size:13px;color:var(--muted);margin-top:3px}
-    #cartWrap{display:block}
-    .hero{max-width:900px;margin:0 auto;text-align:center;padding:64px 22px 30px}
-    .hero h1{font-family:Georgia,serif;color:var(--brown);font-size:clamp(38px,7vw,64px);margin:0 0 12px}
-    .hero p{font-size:18px;line-height:1.6;color:var(--muted);margin:0 auto;max-width:660px}
-    .grid{max-width:1180px;margin:0 auto;padding:28px 22px 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-    .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
-    .content{padding:12px;display:flex;flex-direction:column;flex:1}
-    .paypal-slot{margin-top:0;min-height:48px}
-    .paypal-only-card{overflow:visible}
-    .pickup-wrap{max-width:760px;margin:0 auto 34px;padding:0 22px}
-    .pickup-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px}
-    .pickup-card h2{font-family:Georgia,serif;color:var(--brown);font-size:28px;margin:0 0 8px}
-    .pickup-card .intro{color:var(--muted);line-height:1.55;margin:0 0 16px}
-    .location{background:#f7f1e8;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:20px 0;line-height:1.45}
-    .pickup-card a{color:var(--brown);font-weight:700}
-    .cart-note{max-width:760px;margin:0 auto 70px;padding:0 22px;text-align:center;color:var(--muted);line-height:1.55}
-    .cart-note a{color:var(--brown);font-weight:700}
-    footer{background:var(--brown);color:#fff;padding:28px 22px;text-align:center;font-size:14px}
-    @media(max-width:850px){
-      .grid{grid-template-columns:1fr;max-width:580px}
-      .nav{align-items:flex-start}
-      .hero{padding-top:42px}
+
+    * {
+      box-sizing: border-box;
     }
-    @media(max-width:620px){
-      .pickup-card{padding:22px 18px}
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--brown);
+      font-family: Georgia, serif;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+    }
+
+    .tag {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    #cartWrap {
+      display: block;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 22px 30px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      color: var(--brown);
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 7vw, 64px);
+    }
+
+    .hero p {
+      max-width: 660px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 22px 44px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--paper);
+    }
+
+    .content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 12px;
+    }
+
+    .paypal-slot {
+      min-height: 48px;
+      margin-top: 0;
+    }
+
+    .paypal-only-card {
+      overflow: visible;
+    }
+
+    .gift-section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 4px 22px 54px;
+    }
+
+    .gift-heading {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      text-align: center;
+    }
+
+    .gift-heading h2 {
+      margin: 0 0 10px;
+      color: var(--brown);
+      font-family: Georgia, serif;
+      font-size: clamp(30px, 5vw, 42px);
+    }
+
+    .gift-heading p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .gift-card {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--paper);
+    }
+
+    .gift-card h3 {
+      margin: 0 0 8px;
+      color: var(--brown);
+      font-family: Georgia, serif;
+      font-size: 25px;
+    }
+
+    .gift-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .gift-card .gift-count {
+      margin-bottom: 14px;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .pickup-wrap {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      padding: 0 22px;
+    }
+
+    .pickup-card {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--paper);
+    }
+
+    .pickup-card h2 {
+      margin: 0 0 8px;
+      color: var(--brown);
+      font-family: Georgia, serif;
+      font-size: 28px;
+    }
+
+    .pickup-card .intro {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .location {
+      margin: 20px 0;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f7f1e8;
+      line-height: 1.45;
+    }
+
+    .pickup-card a,
+    .cart-note a {
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .cart-note {
+      max-width: 760px;
+      margin: 0 auto 70px;
+      padding: 0 22px;
+      color: var(--muted);
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    footer {
+      padding: 28px 22px;
+      background: var(--brown);
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .grid {
+        max-width: 580px;
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .pickup-card {
+        padding: 22px 18px;
+      }
     }
   </style>
 
-  <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="2X4QGWTYNY48W"></script>
+  <script
+    src="https://www.paypalobjects.com/ncp/cart/cart.js"
+    data-merchant-id="2X4QGWTYNY48W">
+  </script>
 </head>
+
 <body>
 
-<header>
-  <div class="nav">
-    <div>
-      <div class="brand">Kayla's Kookies</div>
-      <div class="tag">Kan't have just one.</div>
+  <header>
+    <div class="nav">
+      <div>
+        <div class="brand">Kayla's Kookies</div>
+        <div class="tag">Kan't have just one.</div>
+      </div>
+
+      <div id="cartWrap">
+        <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
+        <script>cartPaypal.Cart({ id: "pp-view-cart" })</script>
+      </div>
     </div>
-    <div id="cartWrap">
-      <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
-      <script>cartPaypal.Cart({ id: "pp-view-cart" })</script>
-    </div>
-  </div>
-</header>
+  </header>
 
-<main>
-  <section class="hero">
-    <h1>Order Your Kookies</h1>
-    <p>Choose your favorites, add multiple flavors to your cart, then check out securely with PayPal.</p>
-  </section>
-
-  <section class="grid" aria-label="Cookie flavors">
-    <article class="card paypal-only-card">
-      <div class="content">
-        <div class="paypal-slot">
-          <paypal-add-to-cart-button data-id="CAK6C4HF4XK9Y"></paypal-add-to-cart-button>
-          <script>cartPaypal.AddToCart({ id: "CAK6C4HF4XK9Y" })</script>
-        </div>
-      </div>
-    </article>
-
-    <article class="card paypal-only-card">
-      <div class="content">
-        <div class="paypal-slot">
-          <paypal-add-to-cart-button data-id="YSHH4WTBQMDZY"></paypal-add-to-cart-button>
-          <script>cartPaypal.AddToCart({ id: "YSHH4WTBQMDZY" })</script>
-        </div>
-      </div>
-    </article>
-
-    <article class="card paypal-only-card">
-      <div class="content">
-        <div class="paypal-slot">
-          <paypal-add-to-cart-button data-id="DQP57G5P5WUGY"></paypal-add-to-cart-button>
-          <script>cartPaypal.AddToCart({ id: "DQP57G5P5WUGY" })</script>
-        </div>
-      </div>
-    </article>
-  </section>
-
-  <section class="pickup-wrap" aria-labelledby="pickupHeading">
-    <div class="pickup-card">
-      <h2 id="pickupHeading">Pickup Information</h2>
-
-      <p class="intro">
-        All orders are available for pickup at the address below.
+  <main>
+    <section class="hero">
+      <h1>Order Your Kookies</h1>
+      <p>
+        Choose your favorites, add multiple flavors to your cart, then check out
+        securely with PayPal.
       </p>
+    </section>
 
-      <div class="location">
-        <strong>Pickup Address</strong><br>
-        99 Slattery Drive<br>
-        Cedar Grove, NJ 07009
+    <section class="grid" aria-label="Cookie flavors">
+      <article class="card paypal-only-card">
+        <div class="content">
+          <div class="paypal-slot">
+            <paypal-add-to-cart-button data-id="CAK6C4HF4XK9Y"></paypal-add-to-cart-button>
+            <script>cartPaypal.AddToCart({ id: "CAK6C4HF4XK9Y" })</script>
+          </div>
+        </div>
+      </article>
+
+      <article class="card paypal-only-card">
+        <div class="content">
+          <div class="paypal-slot">
+            <paypal-add-to-cart-button data-id="YSHH4WTBQMDZY"></paypal-add-to-cart-button>
+            <script>cartPaypal.AddToCart({ id: "YSHH4WTBQMDZY" })</script>
+          </div>
+        </div>
+      </article>
+
+      <article class="card paypal-only-card">
+        <div class="content">
+          <div class="paypal-slot">
+            <paypal-add-to-cart-button data-id="DQP57G5P5WUGY"></paypal-add-to-cart-button>
+            <script>cartPaypal.AddToCart({ id: "DQP57G5P5WUGY" })</script>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="gift-section" aria-labelledby="giftHeading">
+      <div class="gift-heading">
+        <h2 id="giftHeading">Gift Baskets</h2>
+        <p>
+          Share a little sweetness with a basket of our signature Chocolate Chip,
+          Double Chocolate, and Cookie Butter cookies. Choose the size that’s just
+          right for your celebration, thank-you, or treat.
+        </p>
       </div>
 
-      <p class="intro">
-        After your order is confirmed, we will reach out to you to coordinate a pickup time.
-      </p>
+      <article class="gift-card">
+        <h3>Kayla's Kookies Gift Basket</h3>
+        <p class="gift-count">
+          Choose from small, medium, or large
+        </p>
+        <p>
+          Small baskets include 2 of each flavor, medium baskets include 4 of
+          each flavor, and large baskets include 12 of each flavor. Select your
+          basket size using the options on the PayPal button below.
+        </p>
 
-      <p class="intro">
-        For any questions regarding order pickup, please email
-        <a href="mailto:help@kaylaskookies.org">help@kaylaskookies.org</a>.
-      </p>
-    </div>
-  </section>
+        <div class="paypal-slot">
+          <paypal-add-to-cart-button data-id="ZPNVMTBEYMAFQ"></paypal-add-to-cart-button>
+          <script>cartPaypal.AddToCart({ id: "ZPNVMTBEYMAFQ" })</script>
+        </div>
+      </article>
+    </section>
 
-  <p class="cart-note">
-    Add your favorite flavors to the cart, then select <strong>View Cart</strong>
-    at the top of the page to review your order and complete checkout.
-    Planning a larger order, custom request, or catering event? Contact us at
-    <a href="mailto:order@kaylaskookies.org?subject=Kayla's%20Kookies%20Order">order@kaylaskookies.org</a>.
-  </p>
-</main>
+    <section class="pickup-wrap" aria-labelledby="pickupHeading">
+      <div class="pickup-card">
+        <h2 id="pickupHeading">Pickup Information</h2>
 
-<footer>© 2026 Kayla's Kookies · Cedar Grove, New Jersey</footer>
+        <p class="intro">
+          All orders are available for pickup at the address below.
+        </p>
+
+        <div class="location">
+          <strong>Pickup Address</strong><br>
+          99 Slattery Drive<br>
+          Cedar Grove, NJ 07009
+        </div>
+
+        <p class="intro">
+          After your order is confirmed, we will reach out to you to coordinate
+          a pickup time.
+        </p>
+
+        <p class="intro">
+          For any questions regarding order pickup, please email
+          <a href="mailto:help@kaylaskookies.org">help@kaylaskookies.org</a>.
+        </p>
+      </div>
+    </section>
+
+    <p class="cart-note">
+      Add your favorite flavors to the cart, then select <strong>View Cart</strong>
+      at the top of the page to review your order and complete checkout.
+      Planning a larger order, custom request, or catering event? Contact us at
+      <a href="mailto:order@kaylaskookies.org?subject=Kayla's%20Kookies%20Order">order@kaylaskookies.org</a>.
+    </p>
+  </main>
+
+  <footer>© 2026 Kayla's Kookies · Cedar Grove, New Jersey</footer>
 
 </body>
 </html>
